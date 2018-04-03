@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v-text&v-html实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-text&v-html</h1>
+    <hr>
+    
+    <div id="app">
+        <span>{{message}}</span>=<span v-text="message"></span>
+        <br>
+        <span v-html="coco"></span>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'helloworld!',
+                coco:'<h2>helloworld</h2>'//一般不用这个，防止黑客攻击
+            }
+        });
+    </script>
+</body>
+</html>

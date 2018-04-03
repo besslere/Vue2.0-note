@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>computed实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>computed</h1>
+    <hr>
+    
+    <div id="app">
+        <p>{{priceTotal}}</p>
+        <ul>
+            <li v-for="tmp in reverseNews">{{tmp.title}}-{{tmp.date}}</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var newsList = [
+            {title:'养老金调整机制确立 更大规模资金入市或成定局',date:'2018-03-30'},
+            {title:'中国“海龙11000”潜水器2000米级海试成功',date:'2018-03-31'},
+            {title:'人民日报：西湖大学获批成立 “剑”指世界一流',date:'2018-04-01'},
+            {title:'真正让孩子“牛”起来的不一定是“牛校”',date:'2018-04-01'},
+            {title:'重磅！中国对美国128项进口商品加征关税',date:'2018-04-02'}
+        ]
+        var app = new Vue({
+            el:'#app',
+            data:{
+                price:100,
+                newsList:newsList
+            },
+            computed:{
+                priceTotal:function(){
+                    return this.price = '¥' + this.price + '元'
+                },
+                reverseNews:function(){
+                    return this.newsList.reverse();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

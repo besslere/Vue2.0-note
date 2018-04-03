@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mixins实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>mixins</h1>
+    <hr>
+    
+    <div id="app">
+        {{num}}
+        <p><button @click="add">add</button></p>
+    </div>
+
+    <script type="text/javascript">
+        var addConsole={
+            updated:function(){
+                console.log("数据发生变化，变成了" + this.num);
+            }
+        }
+        Vue.mixin({
+            updated:function(){
+                console.log("我是全局的注入");
+            }
+        });
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:1
+            },
+            methods:{
+                add:function(){
+                    this.num++;
+                }
+            },
+            // 原生的update生命周期
+            updated:function(){
+                console.log("我是原生的updated");
+            },
+            // 混入
+            mixins:[addConsole]
+        });
+    </script>
+</body>
+</html>

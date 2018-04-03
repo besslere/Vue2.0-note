@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>template实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>template三种写法</h1>
+    <hr>
+    
+    <div id="app">
+        {{message}}
+    </div>
+
+    <!-- 第二种：在标签内建模板 -->
+    <template id="tmp">
+        <h2 style="color:red;">我是标签模板</h2>
+    </template>
+
+    <!-- 第三种：在script标签内建模板 -->
+    <script type="x-template" id="tmp2">
+        <h2 style="color:red">我是script标签模板</h2>
+    </script>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'helloworld'
+            },
+            //第一种：在构造器内建模板
+            //template:`<h2 style="color:red;">我是选项模板</h2>`
+            //第二种：
+            //template:'#tmp'
+            //第三种：
+            template:'#tmp2'
+        });
+    </script>
+</body>
+</html>

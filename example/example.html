@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HelloWorld实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-1.11.3.js"></script>
+</head>
+<body>
+    <h1>HelloWorld</h1>
+    <hr>
+    
+    <div id="app">
+        {{message}}
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'helloworld'
+            },
+            // 利用jquery方法证明引入了jquery
+            mounted:function(){
+                console.log("已引入了jquery");
+                $("#app").html("您好！我是jquery~！");
+            },
+            methods:{
+                add:function(){
+                    console.log("调用了构造器内部的add方法！");
+                }
+            }
+        });
+        app.add();
+    </script>
+</body>
+</html>

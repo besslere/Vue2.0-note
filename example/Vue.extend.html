@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.extend实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue.extend</h1>
+    <hr>
+    
+    <author></author>
+    <div id="author"></div>
+
+    <script type="text/javascript">
+        var authorUrl=Vue.extend({
+            //创建模板
+            template:"<p><a :href='authorUrl'>{{authorName}}</a></p>",
+            //匿名方法
+            data:function(){
+                return{
+                    authorName:'百度一下',
+                    authorUrl:'http://www.baidu.com'
+                }
+            }
+        });
+        //绑定或者加载
+        new authorUrl().$mount("author");
+        new authorUrl().$mount("#author");
+    </script>
+</body>
+</html>

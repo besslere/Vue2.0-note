@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v-on实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-on</h1>
+    <hr>
+    
+    <div id="app">
+        增加购买商品数量：{{get}}
+        <p>
+            <button v-on:click="add">加分</button>
+            <button @click="del">减分</button>
+            <br>
+            <input type="text" v-on:keyup.enter="onEnter" v-model="get2" placeholder="加分">
+            <br>
+            <input type="text" v-on:keyup.32="onSpace" v-model="del2" placeholder="减分">
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                get:0
+            },
+            methods:{
+                add:function(){
+                    this.get++;
+                },
+                del:function(){
+                    this.get--;
+                },
+                onEnter:function(){
+                    this.get=this.get + parseInt(this.get2);//用parseInt将字符串转换成整数
+                },
+                onSpace:function(){
+                    this.get=this.get - parseInt(this.del2);//html中的32代表空格键
+                }
+            }
+        });
+    </script>
+</body>
+</html>

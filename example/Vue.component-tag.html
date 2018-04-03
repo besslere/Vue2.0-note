@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>component标签实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>component标签</h1>
+    <hr>
+    
+    <div id="app">
+        <component :is="who"></component>
+        <button @click="changeComponent">看我七十二变</button>
+    </div>
+
+    <script type="text/javascript">
+        var componentA={
+            template:`<h1 style="color:#f00">我是componentA</h1>`
+        }
+        var componentB={
+            template:`<h1 style="color:#f18200">我是componentB</h1>`
+        }
+        var componentC={
+            template:`<h1 style="color:#999">我是componentC</h1>`
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                who:'componentA'
+            },
+            components:{
+                "componentA":componentA,
+                "componentB":componentB,
+                "componentC":componentC,
+            },
+            methods:{
+                changeComponent:function(){
+                    if(this.who=='componentA'){
+                        this.who='componentB';
+                    }else if(this.who=='componentB'){
+                        this.who='componentC';
+                    }else{
+                        this.who='componentA';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

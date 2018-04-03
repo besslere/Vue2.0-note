@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>propsData实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>propsData</h1>
+    <hr>
+    <!-- Step1：拟定一个标签header -->
+    <header></header>
+
+    <script type="text/javascript">
+        // Step2：声明一个扩展对象
+        var headerExtend = Vue.extend({
+            // Step3：创建一个模板
+            template:`<p><a :href="aUrl">{{information}}{{click}}</a></p>`,
+            // Step4：
+            data:function(){
+                return{
+                    aUrl:'http://www.baidu.com',
+                    information:'百度一下！'
+                }
+            },
+            //Step5：属性设置
+            props:['click']
+        });
+        // Step6：挂载
+        new headerExtend({propsData:{click:"点我"}}).$mount('header');
+
+    </script>
+</body>
+</html>

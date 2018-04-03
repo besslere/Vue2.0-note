@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v-bind实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-bind</h1>
+    <hr>
+    
+    <div id="app">
+        <div>
+            <h3>1、图片的绑定</h3>
+            <img v-bind:src="imgSrc" width="100px;">
+        </div>
+        <hr>
+        <div>
+            <h3>2、链接的绑定</h3>
+            <a :href="aUrl">点我一下，跳转百度</a>
+        </div>
+        <hr>
+        <div>
+            <h3>3、class的绑定</h3>
+            <p :class="className">我是classA,我变色了</p>
+        </div>
+        <hr>
+        <div>
+            <h3>4、绑定class中的判断</h3>
+            <p :class="{classB:isOk}">我是classB，我可以变大变小</p>
+            <input type="checkbox" id="isOk" v-model="isOk">
+            <label for="isOk">{{isOk}}</label>
+        </div>
+        <hr>
+        <div>
+            <h3>5、绑定class中的数组</h3>
+            <p :class="[classC,classD]">我变粗了又加了背景</p>
+        </div>
+        <hr>
+        <div>
+            <h3>6、三元运算符的绑定</h3>
+            <p :class="isPass?classA:classB">我变色又变大了</p>
+            <input type="checkbox" id="isPass" v-model="isPass">
+            <label for="isPass">{{isPass}}</label>
+        </div>
+        <hr>
+        <div>
+            <h3>7、直接绑定style</h3>
+            <p :style="{color:green,fontSize:font}">我变色又变大了</p>
+        </div>
+        <hr>
+        <div>
+            <h3>8、对象绑定style</h3>
+            <p :style="styleObj">我变色又变大了</p>
+        </div>
+    </div>
+
+    <style>
+        .classA{
+            color:#f00;
+        }
+        .classB{
+            font-size: 20px;
+        }
+        .classC{
+            font-weight: bold;
+        }
+        .classD{
+            background: #f18200
+        }
+    </style>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'http://s1.bdstatic.com/r/www/cache/mid/static/xueshu/img/logo_4b1971d.gif',
+                aUrl:'http://www.baidu.com',
+                className:'classA',
+                isOk:true,
+                classC:'classC',
+                classD:'classD',
+                classA:'classA',
+                classB:'classB',
+                isPass:true,
+                green:'green',
+                font:'38px',
+                styleObj:{
+                    color:'#ccc',
+                    fontSize:'30px'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

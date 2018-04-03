@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>methods实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>methods</h1>
+    <hr>
+    
+    <div id="app">
+        {{price}}
+    </div>
+    <!-- 在作用域外部调用构造器内的方法 -->
+    <div>
+        <button onclick="app.add(3)">外部ADD</button>
+    </div>
+
+    <script type="text/javascript">
+        var btn ={
+            template:`<button>组件ADD</button>`
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                price:1
+            },
+            methods:{
+                add:function(num){
+                    if(num!=''){
+                        this.price+=num
+                    }else{
+                        this.price++;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

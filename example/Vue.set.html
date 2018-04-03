@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.set实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in arr">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <p>
+        <button onclick="add();">add</button>
+    </p>
+
+    <script type="text/javascript">
+        //改变数组中某个值
+        function add(){
+            console.log('我已经执行了！')
+            Vue.set(app.arr,1,'魅族');//苹果变成了魅族
+        }
+
+        var outData={
+            arr:['小米','苹果','三星']
+        }
+
+        var app = new Vue({
+            el:'#app',
+            data:outData,
+        });
+    </script>
+</body>
+</html>

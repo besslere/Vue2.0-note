@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Component 父子组件关系实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Component 父子组件关系</h1>
+    <hr>
+    
+    <div id="app">
+        <box></box>
+    </div>
+
+    <script type="text/javascript">
+    // 父子组件的嵌套
+        // 4、此项应该写在最前面，因为不放在前面就无法读取
+        var city={
+            template:`<div style="color:green;">我是老二</div>`
+        }
+        // 1、先在构造器外声明一个组件
+        var boxComponent={
+            // 2、创建模板
+            template:`
+                <div>
+                    <p>我是老大</p>
+                    <city></city>
+                </div>
+            `,
+            // 3、在父组件下声明标签（用外部引用的方法）
+            components:{
+                "city":city
+            }
+        }
+        var app = new Vue({
+            el:'#app',
+            components:{
+                'box':boxComponent
+            }
+        });
+    </script>
+</body>
+</html>
